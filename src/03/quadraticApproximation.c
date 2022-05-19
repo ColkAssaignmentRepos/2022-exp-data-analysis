@@ -2,18 +2,10 @@
 // Created by Manaki ITO on 2022/05/16.
 //
 
-#include <math.h>
-
-#include "../common/macro/myErrors.h"
-
 #include "../common/type/linearDouble.h"
-#include "../common/readFile.h"
-
-#include "../common/readFile.c"
-
 #include "../common/type/quadraticFunction.h"
 
-#include "../01/statisticalFunctions.c"
+#include "./quadraticApproximation.h"
 
 
 quadraticFunction quadraticApproximation(linearDouble x, linearDouble y) {
@@ -74,54 +66,4 @@ quadraticFunction quadraticApproximation(linearDouble x, linearDouble y) {
     quadraticFunction result = {a, b, c};
 
     return result;
-}
-
-double calculate_quadratic_function_value(quadraticFunction quadratic_function, double x) {
-    return (quadratic_function.a * x * x) + (quadratic_function.b * x) + quadratic_function.c;
-}
-
-
-double coefficientOfDeterminationQuadratic(quadraticFunction quadratic_approximation, linearDouble x, linearDouble y) {
-    double total_variation = 0;
-    double error_sum_of_squares = 0;
-
-    if (x.length != y.length) {
-        kill_exit(INVALID_DATA_FORMAT, INVALID_DATA_FORMAT_ERR_MSG);
-    }
-
-    double average_y = average(y);
-
-    for (int i = 0; i < x.length; i++) {
-        total_variation += pow((y.data[i] - calculate_quadratic_function_value(quadratic_approximation, x.data[i])), 2.0);
-        error_sum_of_squares += pow((y.data[i] - average_y), 2.0);
-    }
-
-    double result = 1 - (total_variation / error_sum_of_squares);
-
-    return result;
-}
-
-
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        kill_exit(-1, UNEXPECTED_ARGUMENTS_ERR_MSG);
-    }
-
-    char *path_to_file = argv[1];
-
-    readData data = readFile(path_to_file);
-    if (data.err != NO_ERROR) {
-        kill_exit(-1, UNABLE_TO_OPEN_FILE_ERR_MSG);
-    }
-
-    quadraticFunction approximation = quadraticApproximation(data.x, data.y);
-    double coefficient_of_determination = coefficientOfDeterminationQuadratic(approximation, data.x, data.y);
-
-    printf("y = %lf x2 + %lf x + %lf\n",
-           approximation.a, approximation.b, approximation.c);
-
-    printf("R2 = %lf\n",
-           coefficient_of_determination);
-
-    return NO_ERROR;
 }

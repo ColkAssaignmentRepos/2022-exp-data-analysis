@@ -1,19 +1,14 @@
 //
-// Created by Manaki ITO on 2022/05/06.
+// Created by Manaki ITO on 2022/05/19.
 //
-#include <stdio.h>
-#include <stdlib.h>
 
 #include "../common/macro/myErrors.h"
-
-#include "../common/type/linearDouble.h"
-#include "../common/type/linearFunction.h"
 
 #include "../common/utils/readFile.h"
 
 #include "../common/statics/staticalFunctions.h"
 
-#include "./linearApproximation.h"
+#include "./quadraticApproximation.h"
 
 
 int main(int argc, char *argv[]) {
@@ -28,11 +23,12 @@ int main(int argc, char *argv[]) {
         kill_exit(-1, UNABLE_TO_OPEN_FILE_ERR_MSG);
     }
 
-    linearFunction regression_coefficient = linearApproximation(data.x, data.y);
-    double coefficient_of_determination = coefficientOfDeterminationLinear(regression_coefficient, data.x, data.y);
+    quadraticFunction approximation = quadraticApproximation(data.x, data.y);
+    double coefficient_of_determination = coefficientOfDeterminationQuadratic(approximation, data.x, data.y);
 
-    printf("y = %lf x + %lf\n",
-           regression_coefficient.a, regression_coefficient.b);
+    printf("y = %lf x2 + %lf x + %lf\n",
+           approximation.a, approximation.b, approximation.c);
+
     printf("R2 = %lf\n",
            coefficient_of_determination);
 
