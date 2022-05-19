@@ -6,10 +6,10 @@
 #define INC_2022_EXP_DATA_ANALYSIS__QUADRATICAPPROXIMATION_H
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/quadraticFunction.h"
+#include "../common/type/quadraticFunctionParameters.h"
 
 
-quadraticFunction quadraticApproximation(linearDouble x, linearDouble y);
+quadraticFunctionParameters quadraticApproximation(linearDouble x, linearDouble y);
 
 
 #endif //INC_2022_EXP_DATA_ANALYSIS__QUADRATICAPPROXIMATION_H

@@ -6,10 +6,10 @@
 #define INC_2022_EXP_DATA_ANALYSIS__LINEARAPPROXIMATION_H
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/linearFunction.h"
+#include "../common/type/linearFunctionParameters.h"
 
 
-linearFunction linearApproximation(linearDouble x, linearDouble y);
+linearFunctionParameters linearApproximation(linearDouble x, linearDouble y);
 
 
 #endif //INC_2022_EXP_DATA_ANALYSIS__LINEARAPPROXIMATION_H
