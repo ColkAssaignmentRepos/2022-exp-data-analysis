@@ -7,7 +7,7 @@
 #include "../common/macro/myErrors.h"
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/linearFunction.h"
+#include "../common/type/linearFunctionParameters.h"
 
 #include "../common/utils/readFile.h"
 
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
         kill_exit(-1, UNABLE_TO_OPEN_FILE_ERR_MSG);
     }
 
-    linearFunction regression_coefficient = linearApproximation(data.x, data.y);
+    linearFunctionParameters regression_coefficient = linearApproximation(data.x, data.y);
     double coefficient_of_determination = coefficientOfDeterminationLinear(regression_coefficient, data.x, data.y);
 
     printf("y = %lf x + %lf\n",

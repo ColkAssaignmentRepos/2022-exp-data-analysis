@@ -3,12 +3,12 @@
 //
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/quadraticFunction.h"
+#include "../common/type/quadraticFunctionParameters.h"
 
 #include "./quadraticApproximation.h"
 
 
-quadraticFunction quadraticApproximation(linearDouble x, linearDouble y) {
+quadraticFunctionParameters quadraticApproximation(linearDouble x, linearDouble y) {
     double a, b, c = 0;
 
     double X = 0;
@@ -63,7 +63,7 @@ quadraticFunction quadraticApproximation(linearDouble x, linearDouble y) {
     // a2
     a = ((N * X2 * X2Y) - (X * X * X2Y) + (X * X2 * XY) - (N * X3 * XY) + (X * X3 * Y) - (X2 * X2 * Y)) / (A);
 
-    quadraticFunction result = {a, b, c};
+    quadraticFunctionParameters result = {a, b, c};
 
     return result;
 }

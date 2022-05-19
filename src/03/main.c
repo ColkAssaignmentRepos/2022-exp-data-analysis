@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
         kill_exit(-1, UNABLE_TO_OPEN_FILE_ERR_MSG);
     }
 
-    quadraticFunction approximation = quadraticApproximation(data.x, data.y);
+    quadraticFunctionParameters approximation = quadraticApproximation(data.x, data.y);
     double coefficient_of_determination = coefficientOfDeterminationQuadratic(approximation, data.x, data.y);
 
     printf("y = %lf x2 + %lf x + %lf\n",

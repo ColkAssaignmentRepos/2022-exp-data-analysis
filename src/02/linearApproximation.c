@@ -3,15 +3,15 @@
 //
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/linearFunction.h"
+#include "../common/type/linearFunctionParameters.h"
 
 #include "../common/statics/staticalFunctions.h"
 
 #include "./linearApproximation.h"
 
 
-linearFunction linearApproximation(linearDouble x, linearDouble y) {
-    linearFunction result = {0, 0};
+linearFunctionParameters linearApproximation(linearDouble x, linearDouble y) {
+    linearFunctionParameters result = {0, 0};
 
     double covariance_xy = covariance(x, y);
     double variance_x = variance(x);

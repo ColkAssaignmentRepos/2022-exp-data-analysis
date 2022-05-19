@@ -8,8 +8,8 @@
 #include "../../common/macro/myErrors.h"
 
 #include "../../common/type/linearDouble.h"
-#include "../../common/type/linearFunction.h"
-#include "../../common/type/quadraticFunction.h"
+#include "../../common/type/linearFunctionParameters.h"
+#include "../../common/type/quadraticFunctionParameters.h"
 
 #include "./staticalFunctions.h"
 
@@ -109,12 +109,12 @@ double correlationCoefficient(linearDouble x, linearDouble y) {
 }
 
 
-double linearFunctionValue(linearFunction linearFunction, double x) {
+double linearFunctionValue(linearFunctionParameters linearFunction, double x) {
     return (linearFunction.a * x) + linearFunction.b;
 }
 
 
-double coefficientOfDeterminationLinear(linearFunction linearApproximation, linearDouble x, linearDouble y) {
+double coefficientOfDeterminationLinear(linearFunctionParameters linearApproximation, linearDouble x, linearDouble y) {
     double total_variation = 0;
     double error_sum_of_squares = 0;
 
@@ -135,12 +135,12 @@ double coefficientOfDeterminationLinear(linearFunction linearApproximation, line
 }
 
 
-double quadraticFunctionValue(quadraticFunction quadratic_function, double x) {
+double quadraticFunctionValue(quadraticFunctionParameters quadratic_function, double x) {
     return (quadratic_function.a * x * x) + (quadratic_function.b * x) + quadratic_function.c;
 }
 
 
-double coefficientOfDeterminationQuadratic(quadraticFunction quadratic_approximation, linearDouble x, linearDouble y) {
+double coefficientOfDeterminationQuadratic(quadraticFunctionParameters quadratic_approximation, linearDouble x, linearDouble y) {
     double total_variation = 0;
     double error_sum_of_squares = 0;
 

@@ -6,8 +6,8 @@
 #define INC_2022_EXP_DATA_ANALYSIS__STATICALFUNCTIONS_H
 
 #include "../../common/type/linearDouble.h"
-#include "../../common/type/linearFunction.h"
-#include "../../common/type/quadraticFunction.h"
+#include "../../common/type/linearFunctionParameters.h"
+#include "../../common/type/quadraticFunctionParameters.h"
 
 
 double sum(linearDouble data);
@@ -24,13 +24,13 @@ double standardDeviation(linearDouble data);
 
 double correlationCoefficient(linearDouble x, linearDouble y);
 
-double linearFunctionValue(linearFunction linearFunction, double x);
+double linearFunctionValue(linearFunctionParameters linearFunction, double x);
 
-double coefficientOfDeterminationLinear(linearFunction linearApproximation, linearDouble x, linearDouble y);
+double coefficientOfDeterminationLinear(linearFunctionParameters linearApproximation, linearDouble x, linearDouble y);
 
-double quadraticFunctionValue(quadraticFunction quadratic_function, double x);
+double quadraticFunctionValue(quadraticFunctionParameters quadratic_function, double x);
 
-double coefficientOfDeterminationQuadratic(quadraticFunction quadratic_approximation, linearDouble x, linearDouble y);
+double coefficientOfDeterminationQuadratic(quadraticFunctionParameters quadratic_approximation, linearDouble x, linearDouble y);
 
 
 #endif //INC_2022_EXP_DATA_ANALYSIS__STATICALFUNCTIONS_H
