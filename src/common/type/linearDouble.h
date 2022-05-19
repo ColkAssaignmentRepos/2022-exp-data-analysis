@@ -7,14 +7,17 @@
 
 #include <stdbool.h>
 
+
 typedef struct {
     unsigned length;
     double *data;
 } linearDouble;
 
 linearDouble initLinearDouble(unsigned int length);
-bool isInitializedLinear (linearDouble *data);
+
+bool isInitializedLinear(linearDouble *data);
+
 int freeLinearDouble(linearDouble *data);
-linearDouble copyLinearDouble(linearDouble *from);
+
 
 #endif //INC_2022_EXP_DATA_ANALYSIS__LINEARDOUBLE_H

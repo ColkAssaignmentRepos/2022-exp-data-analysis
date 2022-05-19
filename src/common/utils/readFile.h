@@ -5,7 +5,8 @@
 #ifndef INC_2022_EXP_DATA_ANALYSIS__READFILE_H
 #define INC_2022_EXP_DATA_ANALYSIS__READFILE_H
 
-#include "type/linearDouble.h"
+#include "../type/linearDouble.h"
+
 
 typedef struct {
     int err;
@@ -14,5 +15,6 @@ typedef struct {
 } readData;
 
 readData readFile(char file_name[]);
+
 
 #endif //INC_2022_EXP_DATA_ANALYSIS__READFILE_H

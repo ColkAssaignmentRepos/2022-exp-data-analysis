@@ -3,16 +3,15 @@
 //
 
 #include "../common/type/linearDouble.h"
-#include "../common/type/regressionCoefficient.h"
+#include "../common/type/linearFunction.h"
 
-#include "../01/statisticalFunctions.c"
-#include "../02/statisticalFunctions.c"
+#include "../common/statics/staticalFunctions.h"
 
-#include "linearApproximation.h"
+#include "./linearApproximation.h"
 
 
-regressionCoefficient calculateLinearExpression(linearDouble x, linearDouble y) {
-    regressionCoefficient result = {0, 0};
+linearFunction linearApproximation(linearDouble x, linearDouble y) {
+    linearFunction result = {0, 0};
 
     double covariance_xy = covariance(x, y);
     double variance_x = variance(x);

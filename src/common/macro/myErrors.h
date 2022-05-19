@@ -6,6 +6,7 @@
 #define INC_2022_EXP_DATA_ANALYSIS__MYERRORS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #define print_error(...) {fprintf(stderr, "\x1b[31m"); fprintf(stderr, __VA_ARGS__); fprintf(stderr, "\x1b[39m\n");}
 #define kill_exit(exit_code, ...) {print_error(__VA_ARGS__); exit(exit_code);}

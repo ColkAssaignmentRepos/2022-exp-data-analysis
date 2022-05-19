@@ -7,10 +7,10 @@
 #include "../common/macro/myErrors.h"
 
 #include "../common/type/linearDouble.h"
-#include "../common/readFile.h"
 
-#include "../common/readFile.c"
-#include "./statisticalFunctions.c"
+#include "../common/statics/staticalFunctions.h"
+
+#include "../common/utils/readFile.h"
 
 
 int main(int argc, char* argv[]) {
@@ -36,6 +36,9 @@ int main(int argc, char* argv[]) {
 
     printf("ave-x = %lf\nave-y = %lf\nsd-x = %lf\nsd-y = %lf\ncov = %lf\nrel = %lf\n",
            average_x, average_y, standard_deviation_x, standard_deviation_y, covariance_xy, correlation_coefficient_xy);
+
+    freeLinearDouble(&data.x);
+    freeLinearDouble(&data.y);
 
     return NO_ERROR;
 }
