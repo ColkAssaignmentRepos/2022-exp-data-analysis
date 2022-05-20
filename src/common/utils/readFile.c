@@ -45,6 +45,8 @@ readData readFile(char file_name[]) {
         fscanf(fp, "%lf %lf", &data_x.data[i], &data_y.data[i]);
     }
 
+    fclose(fp);
+
     retval.err = 0;
     retval.x = data_x;
     retval.y = data_y;
