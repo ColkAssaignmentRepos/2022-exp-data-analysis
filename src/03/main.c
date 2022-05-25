@@ -32,5 +32,8 @@ int main(int argc, char *argv[]) {
     printf("R2 = %lf\n",
            coefficient_of_determination);
 
+    freeLinearDouble(&data.x);
+    freeLinearDouble(&data.y);
+
     return NO_ERROR;
 }
